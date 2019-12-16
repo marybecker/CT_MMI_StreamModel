@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <!-- Load Esri Leaflet from CDN - Load USGS Web Service Base Map Faster -->
+    <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+            integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+            crossorigin=""></script>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id='map'></div>
+    <button id="info-button" onclick="myInfo()">Information</button>
+    <div id='footer'>
+        <div><img src="https://uky-gis.github.io/graphics/logo-color-400px.png" class="footer-img">
+            <h1>Predicted Water Quality in Connecticut</h1>
+            <p>Alteration of landscape condition and its negative
+            impact on stream biology has been well documented (Allan
+            2004; Hughes and others 2006). Linking bioassessment
+            information with landscape variables using Geographic
+            Information Systems (GIS) has been useful in interpreting
+            patterns in the biological community’s response to changes
+            in land use. We developed
+            and evaluated models using an information theoretic
+            approach to predict stream health as measured by macro-
+            invertebrate multimetric index (MMI) and identified the
+            best fitting model as a three variable model, including
+            percent impervious land cover, a wetlands metric, and
+            catchment slope that best fit the MMI scores (adj-
+                R 2 = 0.56, SE = 11.73). </p>
+
+            <p>The map displays the calculated value for the upstream drainage basin.
+            Cutoffs were taken from Gerriten et al as suggested thresholds for biological
+            condition gradients.</p>
+        </div>
+    </div>
+
+    <script src ="main.js"></script>
+
+</body>
+
+</html>
