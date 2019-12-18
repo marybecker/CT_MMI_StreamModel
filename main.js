@@ -30,7 +30,10 @@ L.control.zoom({
 
 var layerControl = L.control.layers(baseMaps,null).addTo(map);
 
-var breaks = [[75, 'High'],[60, 'Mod'],[43,'ModLow'],[20,'Low']]
+var breaks =    [[75, 'High Quality','(>75 MMI)','#0868ac'],
+                [60, 'Moderate High Quality','(60 - 75 MMI)','#43a2ca'],
+                [43,'Moderate Low Quality','(43 - 60 MMI)','#7bccc4'],
+                [20,'Low Quality','(<43 MMI)','#bae4bc']];
 
 function getColor(d) {
     if(d >= breaks[0][0]) {
@@ -44,6 +47,18 @@ function getColor(d) {
     }
 }
 
+function getQual(m){
+    if(m >= breaks[0][0]) {
+        return breaks[0][1];
+    } else if(m >= breaks[1][0]) {
+        return breaks[1][1];
+    } else if(m >= breaks[2][0]) {
+        return breaks[2][1];
+    } else {
+        return breaks[3][1]
+    }
+}
+
 function style(feature) {
     return {
         fillColor: getColor(feature.properties.MODMMI),
@@ -54,16 +69,28 @@ function style(feature) {
     };
 }
 
+var customPopup =
+    {
+        // 'maxWidth': '500 px',
+        'className' : 'customOptions'
+    };
+
 function onEachFeature(feature, layer) {
-            var props = layer.feature.properties;
-            if (props['GNIS_NAME']!= null){
-                streamName= props['GNIS_NAME']
-            }else{
-                streamName= 'No Name Stream'
-            }
-            var popup = streamName+props['MODMMI'];
-            layer.bindTooltip(popup)
-        }
+    var props = layer.feature.properties;
+    if (props['GNIS_NAME']!= null){
+        streamName= props['GNIS_NAME']
+    }else{
+        streamName= 'No Name Stream'
+    }
+    var popup = `<b>Stream Name:</b> ${streamName} <br> Prediced MMI: ${Math.round(props['MODMMI'])} - ${getQual(props['MODMMI'])}`;
+    if (L.Browser.mobile) {
+        layer.bindPopup(popup,customPopup);
+    } else {
+        layer.bindTooltip(popup,{
+            className: 'customTooltip'
+        });
+    };
+}
 
 function filter (feature) {
     if (feature.properties['MODMMI'] != null){
@@ -75,12 +102,12 @@ function drawLegend(breaks) {
     var legend = L.control({position: 'topleft'});
     legend.onAdd = function () {
         var div = L.DomUtil.create('div', 'legend');
-        div.innerHTML = "<h3>" +'Predicted Water Quality in CT'+ "</h3>";
+        div.innerHTML = "<h3>" +'Predicted Stream Health in CT'+ "</h3>";
         for (var i = 0; i < breaks.length; i++) {
             var color = getColor(breaks[i][0], breaks);
             div.innerHTML +=
                 '<span style="background:' + color + '"></span> ' +
-                '<label>'+(breaks[i][0]).toLocaleString() + '</label>';
+                '<label>'+(breaks[i][1]).toLocaleString()+" "+(breaks[i][2]).toLocaleString()+ '</label>';
         }
 
         return div;
@@ -88,8 +115,13 @@ function drawLegend(breaks) {
     legend.addTo(map);
 }
 
-drawLegend(breaks);
+//Only draw legend if view screen is large enough
+if (screen.width> 1024) {
+    drawLegend(breaks);
+    $("h1").remove()
+}
 
+//Load layers
 var ctBoundJSON = $.getJSON("data/CT_state_boundary.geojson",function(data){
     var CTBound = L.geoJSON(data,{
         style: function (feature) {
@@ -111,7 +143,7 @@ var HighJSON = $.when(ctBoundJSON).done(function(){$.getJSON("data/MMIMod_HighQu
         filter: filter,
         onEachFeature: onEachFeature
     }).addTo(map);
-    layerControl.addOverlay(High,"High")
+    layerControl.addOverlay(High,`<font color=${breaks[0][3]}> ${breaks[0][1]}</font>`)
 });
 });
 
@@ -121,7 +153,7 @@ var modHighJSON = $.when(HighJSON).done(function () {$.getJSON("data/MMIMod_ModH
         filter: filter,
         onEachFeature: onEachFeature
     }).addTo(map);
-    layerControl.addOverlay(modHigh,"modHigh")
+    layerControl.addOverlay(modHigh,`<font color=${breaks[1][3]}> ${breaks[1][1]}</font>`)
 });
 
 });
@@ -132,7 +164,7 @@ var modLowJSON = $.when(modHighJSON).done(function () {$.getJSON("data/MMIMod_Mo
         filter: filter,
         onEachFeature: onEachFeature
     }).addTo(map);
-    layerControl.addOverlay(modLow,"modLow")
+    layerControl.addOverlay(modLow,`<font color=${breaks[2][3]}> ${breaks[2][1]}</font>`)
 });
 
 });
@@ -143,7 +175,7 @@ var LowJSON = $.when(modLowJSON).done(function () {$.getJSON("data/MMIMod_LowQua
         filter: filter,
         onEachFeature: onEachFeature
     }).addTo(map);
-    layerControl.addOverlay(Low,"Low")
+    layerControl.addOverlay(Low,`<font color=${breaks[3][3]}> ${breaks[3][1]}</font>`)
 });
 
 });
@@ -170,37 +202,3 @@ function myInfo() {
         clicked = true
     }
 }
-
-// function addDataToMap(data,Map){
-//     L.geoJSON(data, {
-//         style: style,
-//         filter: function(feature){
-//             if (feature.properties['MODMMI'] != null){
-//                 return feature;
-//             }
-//         },
-//         onEachFeature: onEachFeature
-//     }).addTo(map);
-// }
-//
-// var modHighJSON = $.getJSON("data/MMIMod_ModHighQuality.geojson", function (data){
-//     var modHigh = addDataToMap(data,map);
-// });
-//
-// var modLowJSON = $.when(modHighJSON).done(function ()
-//     {$.getJSON("data/MMIMod_ModLowQuality.geojson", function (data){
-//         addDataToMap(data,map);
-//     })
-// });
-//
-// var LowJSON = $.when(modLowJSON).done(function ()
-// {$.getJSON("data/MMIMod_LowQuality.geojson", function (data){
-//     addDataToMap(data,map);
-// })
-// });
-//
-// var HighJSON = $.when(LowJSON).done(function ()
-// {$.getJSON("data/MMIMod_HighQuality.geojson", function (data){
-//     addDataToMap(data,map);
-// })
-// });

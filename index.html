@@ -22,29 +22,46 @@
 <body>
 
     <div id='map'></div>
-    <button id="info-button" onclick="myInfo()">Information</button>
+    <button id="info-button" onclick="myInfo()">About the Project</button>
+    <h1>Predicted Stream Health</h1>
     <div id='footer'>
-        <div><img src="https://uky-gis.github.io/graphics/logo-color-400px.png" class="footer-img">
-            <h1>Predicted Water Quality in Connecticut</h1>
-            <p>Alteration of landscape condition and its negative
-            impact on stream biology has been well documented (Allan
-            2004; Hughes and others 2006). Linking bioassessment
+        <div><a href="http://www.ct.gov/deep">
+            <img src="http://www.ct.gov/deep/lib/deep/gis/data/deeplogo.png" class="footer-img">
+        </a>
+            <h2>Predicted Stream Health in Connecticut (Bellucci et al. 2013)</h2>
+            <p>Alteration of landscape condition has a negative
+            impact on stream biology. Linking bioassessment
             information with landscape variables using Geographic
-            Information Systems (GIS) has been useful in interpreting
+            Information Systems (GIS) is useful in interpreting
             patterns in the biological community’s response to changes
-            in land use. We developed
-            and evaluated models using an information theoretic
-            approach to predict stream health as measured by macro-
-            invertebrate multimetric index (MMI) and identified the
+            in land use. We developed and evaluated models using an information theoretic
+            approach to predict stream health as measured by macro-invertebrate multimetric index (MMI) and identified the
             best fitting model as a three variable model, including
             percent impervious land cover, a wetlands metric, and
-            catchment slope that best fit the MMI scores (adj-
-                R 2 = 0.56, SE = 11.73). </p>
+            catchment slope that best fit the MMI scores. </p>
 
-            <p>The map displays the calculated value for the upstream drainage basin.
-            Cutoffs were taken from Gerriten et al as suggested thresholds for biological
-            condition gradients.</p>
+            <p>The map displays the predicted MMI score for Connecticut stream catchments drawn at a 1:100,000 scale.
+            MMI stream health condition cutoffs were determined from Gerritsen et al. 2007.  Toggle layers on and off to find
+            areas of different stream health conditions across the State.  Hover over catchments to see the predicted
+            MMI value for a particular stream catchment.</p>
+
+            <h3>References</h3>
+            <a href="https://doi.org/10.1007/s00267-013-0033-9">Bellucci, C., Becker M., Beauchene, M. Dunbar, L.  2013.
+                Classifying the Health of Connecticut Streams Using Benthic
+                Macroinvertebrates with Implications for Water Management.  Environmental Management. 51: 1274.
+                https://doi.org/10.1007/s00267-013-0033-9
+            </a>
+            <br>
+            <a href="https://www.ct.gov/deep/lib/deep/water/water_quality_management/monitoring/ct_macroinvert_bcg.pdf">
+                Gerritsen, J., Jessup, B. 2007.  Calibration of the Biological Condition Gradient for High Gradient Streams
+                of Connecticut.  Report prepared for US EPA Office of Science and Technology and the Connecticut Department of Environmental Protection. Tetra
+                Tech, Maryland.
+            </a>
+
+
         </div>
+        <hr>
+        See my projects on GitHub: <a href="https://github.com/marybecker">github.com/marybecker</a><br>
     </div>
 
     <script src ="main.js"></script>

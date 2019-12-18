@@ -12,6 +12,24 @@ header {
     margin: 10px auto 10px auto;
 }
 
+h1 {
+    position: absolute;
+    margin-top: 0;
+    top: 10px;
+    left: 15px;
+    font-size: 1em;
+    font-weight: bolder;
+    border: 2px solid rgba(244, 244, 244, 0.2);
+    background: rgba(240,240,240, 0.8);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    color: rgba(100, 100, 100, 0.9);
+    letter-spacing: .04em;
+    padding: 10px 15px;
+    /* Add styles to match Leaflet UI elements */
+    border-radius: 5px;
+    z-index: 800;
+}
+
 #map {
     position: absolute;
     top: 0;
@@ -27,7 +45,7 @@ footer {
 }
 
 p {
-    font-size: 1.25em;
+    font-size: 1em;
     /*color: #ddd;*/
     color: rgba(20, 20, 20, 0.8);
 }
@@ -75,7 +93,7 @@ a:hover {
 }
 
 #footer h1 {
-    font-size: 1.3em;
+    font-size: 1em;
     margin: 0 0 5px 0;
 }
 
@@ -87,7 +105,7 @@ a:hover {
 
 .legend {
     padding: 6px 8px;
-    font-size: 1em;
+    font-size: 1.1em;
     border: 2px solid rgba(244, 244, 244, 0.2);
     background: rgba(100, 100, 100, 0.9);
     color: rgba(244, 244, 244, 0.8);
@@ -95,7 +113,7 @@ a:hover {
 }
 
 .legend h3 {
-    font-size: 1.1em;
+    font-size: 1.3em;
     font-weight: bolder;
     color: #ddd;
     margin: 0 0 10px 0;
@@ -118,12 +136,31 @@ a:hover {
     clear: both;
 }
 
-.leaflet-popup-content {
-    max-width: 160px;
+/*.leaflet-popup-content {*/
+    /*max-width: 500px;*/
+/*}*/
+
+.customOptions .leaflet-popup-tip,
+.customOptions .leaflet-popup-content-wrapper {
+    background: rgba(100, 100, 100, 0.9);
+    color: #ffffff;
+    font-size: 1.2vw;
+}
+
+.customTooltip {
+    background: rgba(100, 100, 100, 0.9);
+    color: #ffffff;
+    font-size: 0.8vw;
 }
 
 .leaflet-bar a {
     /* border: 2px solid rgba(244, 244, 244, 0.2); */
     background: rgba(100, 100, 100, 0.9);
     color: rgba(244, 244, 244, 0.8);
+}
+
+.leaflet-control-layers-expanded {
+    background: rgba(100, 100, 100, 0.9);
+    color: rgba(255,255,255, 0.8);
+    font-size: 1.3em;
 }
