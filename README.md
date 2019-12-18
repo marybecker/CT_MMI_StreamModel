@@ -1,4 +1,4 @@
-# CT_MMI_StreamModel
+# Predicted Stream Health in Connecticut
 Map and model to predict stream health based on the CT macroinvertebrate multimetric index (MMI)
 
 https://marybecker.github.io/CT_MMI_StreamModel/
