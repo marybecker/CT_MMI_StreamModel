@@ -10,7 +10,7 @@ https://marybecker.github.io/CT_MMI_StreamModel/
 
 Model development and data used for predictions:
 
-https://github.com/marybecker/CT_MMI_StreamModel
+https://github.com/marybecker/CT_MMI_StreamModel/tree/master/data
 
 ## Abstract 
 
