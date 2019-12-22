@@ -1,11 +1,16 @@
 # Predicted Stream Health in Connecticut
-Map and model to predict stream health based on the CT macroinvertebrate multimetric index (MMI)
-
-https://marybecker.github.io/CT_MMI_StreamModel/
 
 Classifying the Health of Connecticut Streams Using Benthic Macroinvertebrates with Implications for Water Management
 Christopher J. Bellucci • Mary E. Becker • Mike Beauchene • Lee Dunbar
-Environmental Management, 2013 DOI 10.1007/s00267-013-0033-9
+Environmental Management, 2013 [DOI 10.1007/s00267-013-0033-9](https://doi.org/10.1007/s00267-013-0033-9)
+
+Map displaying model predictions of stream health in Connecticut:
+
+https://marybecker.github.io/CT_MMI_StreamModel/
+
+Model development and data used for predictions:
+
+https://github.com/marybecker/CT_MMI_StreamModel
 
 ## Abstract 
 
@@ -21,9 +26,9 @@ landscape condition and watershed characteristics and
 when combined with measurements of stream biology,
 provide a useful visual display of information that is useful
 in a management context. The objective of our study was to
-estimate the stream health for all wadeable stream kilo-
-meters in Connecticut using a combination of macroin-
-vertebrate metrics and landscape variables. We developed
+estimate the stream health for all wadeable stream kilometers 
+in Connecticut using a combination of macroinvertebrate 
+metrics and landscape variables. We developed
 and evaluated models using an information theoretic
 approach to predict stream health as measured by macro-
 invertebrate multimetric index (MMI) and identified the
@@ -34,3 +39,4 @@ R 2 = 0.56, SE = 11.73). We then provide examples of
 how modeling can augment existing programs to support
 water management policies under the Federal Clean Water
 Act such as stream assessments and anti-degradation.
+
