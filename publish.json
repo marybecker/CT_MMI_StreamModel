@@ -3,5 +3,5 @@
   "info": "Map displaying model predictions of stream health in Connecticut (Bellucci et al. 2013)",
   "coordinates": [41.55, -72.65],
   "author": "Mary Becker",
-  "link": "https://github.com/marybecker/CT_MMI_StreamModel"
+  "link": "https://marybecker.github.io/CT_MMI_StreamModel"
 }
