@@ -1,16 +1,14 @@
-# Predicted Stream Health in Connecticut
+# Classifying the Health of Connecticut Streams Using Benthic Macroinvertebrates with Implications for Water Management
 
-Classifying the Health of Connecticut Streams Using Benthic Macroinvertebrates with Implications for Water Management
-Christopher J. Bellucci • Mary E. Becker • Mike Beauchene • Lee Dunbar
-Environmental Management, 2013 [DOI 10.1007/s00267-013-0033-9](https://doi.org/10.1007/s00267-013-0033-9)
+Christopher J. Bellucci, Mary E. Becker, Mike Beauchene, Lee Dunbar
 
-Map displaying model predictions of stream health in Connecticut:
+**Link to Paper:** [Environmental Management, 2013 - doi 10.1007/s00267-013-0033-9](https://doi.org/10.1007/s00267-013-0033-9)
 
-https://marybecker.github.io/CT_MMI_StreamModel/
+**Interactive Map:**  [Model predictions of stream health in Connecticut](https://marybecker.github.io/CT_MMI_StreamModel/)
 
-Model development and data used for predictions:
+**Model Development:** [Scripts and data used for predictions](https://github.com/marybecker/CT_MMI_StreamModel/tree/master/data)
 
-https://github.com/marybecker/CT_MMI_StreamModel/tree/master/data
+
 
 ## Abstract 
 
